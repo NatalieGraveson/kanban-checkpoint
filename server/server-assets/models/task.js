@@ -1,9 +1,8 @@
 let mongoose = require('mongoose')
 let Schema = mongoose.Schema
 let ObjectId = Schema.Types.ObjectId
-let schemaName = 'List'
+let schemaName = 'Task'
 
-let Tasks = require('./task')
 
 
 let schema = new Schema({
@@ -18,7 +17,7 @@ schema.pre('remove', function (next) {
   this._id //THIS IS THE BOARD
   Promise.all([
     //Tasks.deleteMany({ boardId: this._id }),
-    Tasks.deleteMany({ boardId: this._id })
+    task.deleteMany({ boardId: this._id })
   ])
     .then(() => next())
     .catch(err => next(err))
