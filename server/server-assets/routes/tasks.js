@@ -1,5 +1,5 @@
 let router = require('express').Router()
-let Tasks = require('../models/list')
+let Tasks = require('../models/task')
 
 router.get('/', (req, res, next) => {
   Tasks.find({ authorId: req.session.uid })
