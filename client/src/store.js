@@ -90,9 +90,8 @@ export default new Vuex.Store({
           dispatch('getBoards')
         })
     },
-
     //#region -- LISTS --
-    getLists({ commit, dispatch }) {
+    getLists({ commit, dispatch }, boardId) {
       api.get('lists')
         .then(res => {
           commit('setLists', res.data)
