@@ -120,6 +120,13 @@ export default new Vuex.Store({
         .then(res => {
           commit('setTasks', { listId: list._id, tasks: res.data })
         })
+    },
+    addTask({ commit, dispatch }, payload) {
+      api.post('tasks/', payload)
+        .then(res => {
+          debugger
+          dispatch('getTasks', { _id: payload.listId })
+        })
     }
     //#endregion
 

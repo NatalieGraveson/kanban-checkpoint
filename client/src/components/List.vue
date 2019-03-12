@@ -9,7 +9,10 @@
               <task v-for="task in tasks" :taskData='task'></task>
             </p>
             <button type="button" @click="deleteList" class="btn btn-danger">Delete List</button>
-            <button type="button" @click="addTask" class="btn btn-success">Add Task</button>
+            <form @submit.prevent="addTask">
+              <input type="text" placeholder="description" v-model="newTask.description" required>
+              <button type="submit">Create task</button>
+            </form>
           </div>
         </div>
       </div>
@@ -26,6 +29,7 @@
       return {
         newTask: {
           description: "",
+          //listId: 3po45jsepe56jp6
         }
       }
     },
@@ -46,6 +50,8 @@
         this.$store.dispatch('deleteList', this.listData)
       },
       addTask() {
+        this.newTask.listId = this.listData._id
+        this.newTask.boardId = this.listData.boardId
         this.$store.dispatch("addTask", this.newTask)
       }
     },
