@@ -1,5 +1,8 @@
 <template>
   <div class="boards">
+    <nav>
+      <button type="button" @click="logOut" class="btn btn-outline-danger">Logout</button>
+    </nav>
     WELCOME TO THE BOARDS!!!
     <form @submit.prevent="addBoard">
       <input type="text" placeholder="title" v-model="newBoard.title" required>
@@ -14,6 +17,7 @@
 </template>
 
 <script>
+
   export default {
     name: "boards",
     created() {
@@ -45,6 +49,9 @@
       },
       deleteBoard(boardId) {
         this.$store.dispatch("deleteBoard", boardId);
+      },
+      logOut() {
+        this.$store.dispatch('logOut')
       }
     }
   };
