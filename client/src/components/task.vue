@@ -1,17 +1,22 @@
 <template>
-  <div class=" ">
-
+  <div class="task">
+    <h3>{{taskData.description}}</h3>
   </div>
 </template>
 
 <script>
   export default {
-    name: "",
-    props: [],
+    name: "task",
+    props: ['taskData'],
     data() {
       return {}
     },
-    computed: {},
+    computed: {
+      tasks() {
+        return this.$store.state.task
+
+      },
+    },
     methods: {},
     components: {}
   }

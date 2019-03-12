@@ -3,7 +3,7 @@ let Lists = require('../models/list')
 let Tasks = require('../models/task')
 
 router.get('/:boardId', (req, res, next) => {
-  Lists.find({ boardId: req.session.boardId })
+  Lists.find({ boardId: req.params.boardId })
     .then(data => {
       res.send(data)
     })
@@ -47,7 +47,7 @@ router.put('/:id', (req, res, next) => {
 })
 
 router.delete('/:id', (req, res, next) => {
-  Lists.findOneAndDelete({ _id: req.params.id, authorId: req.session.uid })
+  Lists.findOneAndRemove({ _id: req.params.id, authorId: req.session.uid })
     .then(list => {
       // if (!board.authorId.equals(req.session.uid)) {
       //   return res.status(401).send("ACCESS DENIED!")

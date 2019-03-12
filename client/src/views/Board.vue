@@ -7,9 +7,9 @@
           <input type="text" placeholder="title" v-model="newList.title" required>
           <button type="submit">Create List</button>
         </form>
+        <list v-for="list in lists" :listData='list'></list>
       </div>
     </div>
-    <list v-for="list in lists" :listData='list'></list>
   </div>
 </template>
 
@@ -32,13 +32,17 @@
     computed: {
       board() {
         return this.$store.state.boards.find(b => b._id == this.boardId) || { title: 'Loading...' }
-
+      },
+      lists() {
+        return this.$store.state.lists
       }
     },
     methods: {
       addList() {
+        this.newList.boardId = this.boardId
         this.$store.dispatch('addList', this.newList)
         this.newList = { title: "" };
+
       },
     },
     components: {
