@@ -2,8 +2,8 @@ let router = require('express').Router()
 let Lists = require('../models/list')
 let Tasks = require('../models/task')
 
-router.get('/', (req, res, next) => {
-  Lists.find({ authorId: req.session.uid })
+router.get('/:boardId', (req, res, next) => {
+  Lists.find({ boardId: req.session.boardId })
     .then(data => {
       res.send(data)
     })
