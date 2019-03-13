@@ -124,8 +124,14 @@ export default new Vuex.Store({
     addTask({ commit, dispatch }, payload) {
       api.post('tasks/', payload)
         .then(res => {
-          debugger
           dispatch('getTasks', { _id: payload.listId })
+        })
+    },
+    moveTask({ commit, dispatch }, task) {
+      api.put('tasks/' + task._id, task)
+        .then(res => {
+          dispatch('getTasks', { _id: task.listId })
+          dispatch('getTasks', { _id: task.oldListId })
         })
     }
     //#endregion
