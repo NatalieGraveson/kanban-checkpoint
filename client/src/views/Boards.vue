@@ -1,7 +1,7 @@
 <template>
   <div class="boards">
-    <nav>
-      <button type="button" @click="logOut" class="btn btn-outline-danger">Logout</button>
+    <nav class="navbar sticky-top navbar-dark bg-dark">
+      <button type="button" @click="logOut" class="navbar-brand btn btn-outline-danger">Logout</button>
     </nav>
     WELCOME TO THE BOARDS!!!
     <form @submit.prevent="addBoard">
