@@ -5,7 +5,7 @@ let schemaName = 'Task'
 
 let comment = new Schema({
   content: { type: String, required: true },
-  taskId: { type: ObjectId, required: true }
+  taskId: { type: ObjectId, ref: 'Task', required: true },
 })
 
 let schema = new Schema({
@@ -13,7 +13,7 @@ let schema = new Schema({
   authorId: { type: ObjectId, ref: 'User', required: true },
   listId: { type: ObjectId, ref: 'User', required: true },
   boardId: { type: ObjectId, ref: 'Board', required: true },
-  comment: [comment]
+  comments: [comment],
 }, { timestamps: true })
 
 

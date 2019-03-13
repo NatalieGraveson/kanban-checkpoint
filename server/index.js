@@ -52,7 +52,10 @@ server.use('/api/tasks', taskRoutes)
 
 
 
-
+//error handler
+server.use('*', (err, req, res, next) => {
+  res.status(500).send(err)
+})
 
 
 //Catch all

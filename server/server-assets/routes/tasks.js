@@ -64,5 +64,39 @@ router.delete('/:id', (req, res, next) => {
     })
 })
 
+router.post('/:id/comments', (req, res, next) => {
+  Tasks.findOne({ _id: req.params.id })
+    .then(task => {
+      task.comments.push(req.body)
+      task.save(err => {
+        if (err) {
+          return res.status(500).send(err)
+        }
+        res.send(task)
+      })
+    })
+    .catch(err => {
+      next(err)
+    })
+})
+
+router.delete('/:id/comments/:commentId', (req, res, next) => {
+  Tasks.findOne({ _id: req.params.id })
+    .then(task => {
+      task.comments.forEach((comment, index) => {
+        if (comment._id == req.params.commentId) {
+          task.comments.splice(index, 1)
+        }
+      })
+      task.save(err => {
+        if (err) {
+          return res.status(500).send(err)
+        }
+        res.send({ message: 'Task successfully updated! Comment deleted!' })
+      })
+    })
+})
+
+
 
 module.exports = router

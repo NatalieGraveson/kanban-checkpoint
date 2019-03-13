@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import Axios from 'axios'
 import router from './router'
+import { timingSafeEqual } from 'crypto';
 
 Vue.use(Vuex)
 
@@ -135,10 +136,23 @@ export default new Vuex.Store({
         })
     },
     deleteTask({ commit, dispatch }, task) {
-      debugger
       api.delete('tasks/' + task._id)
         .then(res => {
           dispatch('getTasks', { _id: task.listId })
+        })
+    },
+    addComment({ commit, dispatch }, comment) {
+      api.post('tasks/' + comment.taskId + '/comments/', comment)
+        .then(res => {
+          dispatch('getTasks', { _id: comment.listId })
+        })
+    },
+    deleteComment({ commit, dispatch }, payload) {
+      api.delete('tasks/' + payload.taskId + '/comments/' + payload.commentId)
+        .then(res => {
+          debugger
+          dispatch('getTasks', { _id: payload.listId })
+
         })
     }
     //#endregion
