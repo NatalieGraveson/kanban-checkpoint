@@ -32,7 +32,7 @@
         return this.$store.dispatch('moveTask', this.taskData)
       },
       deleteTask() {
-
+        this.$store.dispatch('deleteTask', this.taskData)
       }
     },
     components: {}

@@ -46,7 +46,7 @@ router.put('/:id', (req, res, next) => {
 })
 
 router.delete('/:id', (req, res, next) => {
-  Tasks.findOneAndDelete({ _id: req.params.id, authorId: req.session.uid })
+  Tasks.findOneAndRemove({ _id: req.params.id, authorId: req.session.uid })
     .then(task => {
       // if (!board.authorId.equals(req.session.uid)) {
       //   return res.status(401).send("ACCESS DENIED!")

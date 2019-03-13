@@ -133,6 +133,13 @@ export default new Vuex.Store({
           dispatch('getTasks', { _id: task.listId })
           dispatch('getTasks', { _id: task.oldListId })
         })
+    },
+    deleteTask({ commit, dispatch }, task) {
+      debugger
+      api.delete('tasks/' + task._id)
+        .then(res => {
+          dispatch('getTasks', { _id: task.listId })
+        })
     }
     //#endregion
 
