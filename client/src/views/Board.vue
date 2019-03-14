@@ -1,15 +1,14 @@
 <template>
-  <div class="board container-fluid">
-    <div class="row">
-      <div class="col-12">
-        <h1>{{board.title}} Description: {{board.description}}</h1>
-        <form @submit.prevent="addList">
-          <input type="text" placeholder="title" v-model="newList.title" required>
-          <button type="submit">Create List</button>
-        </form>
-        <list v-for="list in lists" :listData='list'></list>
-      </div>
-    </div>
+  <div class="board">
+
+    <h1>{{board.title}} Description: {{board.description}}</h1>
+    <form @submit.prevent="addList">
+      <input type="text" placeholder="title" v-model="newList.title" required>
+      <button type="submit">Create List</button>
+    </form>
+    <list v-for="list in lists" :listData='list'></list>
+  </div>
+  </div>
   </div>
 </template>
 
@@ -56,5 +55,14 @@
   .card {
     width: min-content;
     height: max-content;
+  }
+
+  .navbar-brand {
+    margin-right: 0rem;
+  }
+
+  .chess {
+    z-index: 2;
+    text-shadow: 6px 2px black;
   }
 </style>
