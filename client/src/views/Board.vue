@@ -1,10 +1,14 @@
 <template>
   <div class="board">
-
+    <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark">
+      <i class="fas fa-chess text-white fa-3x chess"></i>
+      <button type="button" @click="logOut" class="ml-auto navbar-brand btn btn-outline-info topButton">Logout</button>
+    </nav>
     <h1>{{board.title}} Description: {{board.description}}</h1>
     <form @submit.prevent="addList">
-      <input type="text" placeholder="title" v-model="newList.title" required>
-      <button type="submit">Create List</button>
+      <input class="bg-light form-control border border-info text-dark" type="text" placeholder="title"
+        v-model="newList.title" required>
+      <button class="far fa-plus-square text-info" type="submit"></button>
     </form>
     <list v-for="list in lists" :listData='list'></list>
   </div>
@@ -44,6 +48,9 @@
         this.newList = { title: "" };
 
       },
+      logOut() {
+        this.$store.dispatch('logOut')
+      }
     },
     components: {
       List

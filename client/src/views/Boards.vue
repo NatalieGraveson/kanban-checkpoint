@@ -7,16 +7,38 @@
     <h1>CHECK</h1>
     <h1>out your boards</h1>
     <div class="container-fluid">
-      <form @submit.prevent="addBoard">
-        <input class="bg-light form-control border border-info text-white" type="text" placeholder="title"
-          v-model="newBoard.title" required>
-        <input class="bg-light form-control border border-info" type="text" placeholder="description"
-          v-model="newBoard.description">
-        <button class="bg-light form-control border border-info createB" type="submit">Create Board</button>
-      </form>
-      <div v-for="board in boards" :key="board._id">
-        <router-link :to="{name: 'board', params: {boardId: board._id}}">{{board.title}}</router-link>
-        <button class="btn btn-outline-info bg-dark" @click="deleteBoard(board._id)">DELETE BOARD</button>
+      <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8 d-flex justify-content-center">
+          <form @submit.prevent="addBoard">
+            <input class="bg-light form-control border border-info text-dark" type="text" placeholder="title"
+              v-model="newBoard.title" required>
+            <input class="bg-light form-control border border-info text-dark" type="text" placeholder="description"
+              v-model="newBoard.description">
+            <div class="d-flex justify-content-center">
+              <button class="far fa-plus-square text-info bg-light form-control border border-info createB"
+                type="submit"></button>
+            </div>
+          </form>
+        </div>
+        <div class="col-2"></div>
+      </div>
+      <div class="row">
+        <div v-for="board in boards" :key="board._id" class="col-lg-4 col-md-6 col-12 d-flex cardstuff ">
+          <!-- <div > -->
+          <div class="card bg-dark border border-light my-3">
+            <i class="fas fa-chess-king text-white fa-4x kingT"></i>
+            <div class="card-body">
+              <router-link class="nameB" :to="{name: 'board', params: {boardId: board._id}}">{{board.title}}
+              </router-link>
+              <hr>
+              <br>
+              <button class="btn btn-outline-info bg-dark trashIt" @click="deleteBoard(board._id)"><i
+                  class="fas fa-trash-alt"></i></button>
+            </div>
+          </div>
+        </div>
+        <!-- </div> -->
       </div>
     </div>
   </div>
@@ -73,5 +95,47 @@
     text-align: center;
   }
 
-  .createB {}
+  .card {
+    height: min-content;
+    width: 75%;
+  }
+
+  .kingT {
+    margin-top: 18px;
+    text-shadow: 4px 2px black;
+    margin-bottom: -20px;
+  }
+
+  .nameB {
+    font-size: 35px;
+    color: black;
+    font-weight: bolder;
+  }
+
+  .trashIt {
+    margin-top: -50px;
+  }
+
+  form {
+    width: 50%;
+  }
+
+  .cardstuff {
+    justify-content: center;
+  }
+
+  .createB {
+    width: fit-content;
+  }
+
+  @media only screen and (max-width: 450px) {
+    .cardstuff {
+      align-items: center;
+      flex-direction: column;
+    }
+
+    form {
+      width: 100%;
+    }
+  }
 </style>

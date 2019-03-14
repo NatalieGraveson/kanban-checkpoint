@@ -76,11 +76,12 @@
   }
 
   form {
-    margin-top: 31px;
+    margin-top: -14px;
   }
 
   .emailI {
     margin-bottom: 6px;
+    margin-top: 126px
   }
 
   span {
@@ -89,16 +90,16 @@
   }
 
   h3 {
-    margin-top: 20px;
+    margin-top: 61px;
     color: #343a40;
     font-weight: bolder;
-    text-shadow: 1px 1px #189eb3;
     animation: fa-spin 2s ease-in-out;
     font-size: 24px;
   }
 
   button {
     margin-top: 18px;
+    margin-bottom: 5px;
   }
 
   .dots {
