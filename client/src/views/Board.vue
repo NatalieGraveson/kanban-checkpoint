@@ -16,9 +16,9 @@
       <div class="row">
         <div class="col-12 d-flex justify-content-center">
           <form @submit.prevent="addList">
-            <input class="bg-light form-control border border-info text-dark" type="text" placeholder="list name"
+            <input class="bg-light form-control border border-info text-dark mt-5" type="text" placeholder="list name"
               v-model="newList.title" required>
-            <div class="d-flex justify-content-center">
+            <div class="d-flex justify-content-center ">
               <button class="far fa-plus-square text-info bg-dark form-control border border-info createB"
                 type="submit"></button>
             </div>
@@ -115,5 +115,6 @@
 
   h1 {
     text-align: left;
+    font-size: 25px;
   }
 </style>

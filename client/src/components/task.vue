@@ -1,7 +1,7 @@
 <template>
   <div class="task row border mb-4 bg-light">
     <div class="col-4">
-      <h5 class="bg-info text-white border rounded mt-2">Task:</h5>
+      <h5 class="bg-info text-white border rounded mt-2"><i class="fas fa-chess-knight"></i>Task:</h5>
     </div>
     <div class="col-8"></div>
     <br>
@@ -18,7 +18,7 @@
     <div class="col-12">
       <hr>
     </div>
-    <h4 class="col-12 words text-info">Comments:</h4>
+    <h4 class="col-12 words text-info"><i class="fas fa-chess-pawn"></i>Comments:</h4>
     <div class="col-12">
       <i class=" far fa-plus-square text-info bg-dark form-control border border-info plusstuff"
         @click="showAddComment = !showAddComment" v-if="!showAddComment"></i>

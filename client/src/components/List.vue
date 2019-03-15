@@ -1,12 +1,12 @@
 <template>
-  <div class="list col-12">
+  <div class="list col-12 col-md-4 d-flex">
     <div class="card bg-dark border border-info my-3">
       <div class="card-body">
         <div class="col-12">
           <div class="row">
             <div class="col-6 topstuff">
 
-              <h5 class="card-title text-white">List:</h5>
+              <h5 class="card-title text-white"><i class="fas fa-chess-queen"></i>List:</h5>
             </div>
             <div class="col-6 topstuff text-right">
 
@@ -20,7 +20,7 @@
         </p>
         <form @submit.prevent="addTask">
           <input type="text" placeholder="Task..." v-model="newTask.description" required>
-          <button type="submit">Create task</button>
+          <button type="submit" class="btn btn-outline-info">Create task</button>
         </form>
       </div>
     </div>
@@ -84,6 +84,15 @@
 
   .topstuff {
     margin-top: -10px;
+
+  }
+
+  @media only screen and (max-width: 450px) {
+    .list {
+      flex-direction: column;
+      align-items: center;
+
+    }
 
   }
 </style>

@@ -16,22 +16,24 @@
           </h3>
         </div>
       </div>
-      <form class="logform" v-if="loginForm" @submit.prevent="loginUser">
-        <input class="bg-light form-control border border-info emailI" type="email" v-model="creds.email"
-          placeholder="email">
-        <input class="bg-light form-control border border-info" type="password" v-model="creds.password"
-          placeholder="password">
-        <button class="btn btn-outline-info bg-dark" type="submit">Login</button>
-      </form>
-      <form class="registerform" v-else @submit.prevent="register">
-        <input class="bg-light form-control border border-info mb-2" type="text" v-model="newUser.name"
-          placeholder="name">
-        <input class="bg-light form-control border border-info mb-2" type="email" v-model="newUser.email"
-          placeholder="email">
-        <input class="bg-light form-control border border-info mb-2" type="password" v-model="newUser.password"
-          placeholder="password">
-        <button class="btn btn-outline-info bg-dark mb-2" type="submit">Create Account</button>
-      </form>
+      <div class="row justify-content-center">
+        <form class="logform" v-if="loginForm" @submit.prevent="loginUser">
+          <input class="bg-light form-control border border-info emailI" type="email" v-model="creds.email"
+            placeholder="email">
+          <input class="bg-light form-control border border-info" type="password" v-model="creds.password"
+            placeholder="password">
+          <button class="btn btn-outline-info bg-dark" type="submit">Login</button>
+        </form>
+        <form class="registerform" v-else @submit.prevent="register">
+          <input class="bg-light form-control border border-info mb-2" type="text" v-model="newUser.name"
+            placeholder="name">
+          <input class="bg-light form-control border border-info mb-2" type="email" v-model="newUser.email"
+            placeholder="email">
+          <input class="bg-light form-control border border-info mb-2" type="password" v-model="newUser.password"
+            placeholder="password">
+          <button class="btn btn-outline-info bg-dark mb-2" type="submit">Create Account</button>
+        </form>
+      </div>
       <div class="action" @click="loginForm = !loginForm">
         <p class="text-info bg-light" v-if="loginForm">No account? Click here to Register</p>
         <p class="text-info bg-light" v-else>Already have an account? Click here to Login</p>
@@ -82,7 +84,7 @@
     margin-top: 116px;
   }
 
-  .Logform {
+  .logform {
     margin-top: -14px;
   }
 

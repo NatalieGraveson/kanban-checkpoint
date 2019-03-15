@@ -86,6 +86,10 @@
 </script>
 
 <style scoped>
+  h1 {
+    text-align: center;
+  }
+
   .chess {
     z-index: 2;
     text-shadow: 6px 2px black;
