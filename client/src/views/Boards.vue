@@ -4,8 +4,8 @@
       <i class="fas fa-chess text-white fa-3x chess"></i>
       <button type="button" @click="logOut" class="ml-auto navbar-brand btn btn-outline-info topButton">Logout</button>
     </nav>
-    <h1>CHECK</h1>
-    <h1>out your boards</h1>
+    <h1 class="mt-3">CHECK</h1>
+    <h1 class="mb-5">out your boards</h1>
     <div class="container-fluid">
       <div class="row">
         <div class="col-2"></div>
@@ -16,7 +16,7 @@
             <input class="bg-light form-control border border-info text-dark" type="text" placeholder="description"
               v-model="newBoard.description">
             <div class="d-flex justify-content-center">
-              <button class="far fa-plus-square text-info bg-light form-control border border-info createB"
+              <button class="far fa-plus-square text-info bg-dark form-control border border-info createB"
                 type="submit"></button>
             </div>
           </form>

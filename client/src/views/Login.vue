@@ -16,22 +16,25 @@
           </h3>
         </div>
       </div>
-      <form v-if="loginForm" @submit.prevent="loginUser">
+      <form class="logform" v-if="loginForm" @submit.prevent="loginUser">
         <input class="bg-light form-control border border-info emailI" type="email" v-model="creds.email"
           placeholder="email">
         <input class="bg-light form-control border border-info" type="password" v-model="creds.password"
           placeholder="password">
         <button class="btn btn-outline-info bg-dark" type="submit">Login</button>
       </form>
-      <form v-else @submit.prevent="register">
-        <input class="bg-dark" type="text" v-model="newUser.name" placeholder="name">
-        <input class="bg-dark" type="email" v-model="newUser.email" placeholder="email">
-        <input class="bg-dark" type="password" v-model="newUser.password" placeholder="password">
-        <button class="btn btn-outline-dark" type="submit">Create Account</button>
+      <form class="registerform" v-else @submit.prevent="register">
+        <input class="bg-light form-control border border-info mb-2" type="text" v-model="newUser.name"
+          placeholder="name">
+        <input class="bg-light form-control border border-info mb-2" type="email" v-model="newUser.email"
+          placeholder="email">
+        <input class="bg-light form-control border border-info mb-2" type="password" v-model="newUser.password"
+          placeholder="password">
+        <button class="btn btn-outline-info bg-dark mb-2" type="submit">Create Account</button>
       </form>
       <div class="action" @click="loginForm = !loginForm">
         <p class="text-info bg-light" v-if="loginForm">No account? Click here to Register</p>
-        <p v-else>Already have an account? Click here to Login</p>
+        <p class="text-info bg-light" v-else>Already have an account? Click here to Login</p>
       </div>
     </div>
   </div>
@@ -75,7 +78,11 @@
     text-align: center;
   }
 
-  form {
+  .registerform {
+    margin-top: 116px;
+  }
+
+  .Logform {
     margin-top: -14px;
   }
 

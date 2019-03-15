@@ -150,7 +150,6 @@ export default new Vuex.Store({
     deleteComment({ commit, dispatch }, payload) {
       api.delete('tasks/' + payload.taskId + '/comments/' + payload.commentId)
         .then(res => {
-          debugger
           dispatch('getTasks', { _id: payload.listId })
 
         })
