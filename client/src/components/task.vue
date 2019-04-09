@@ -7,36 +7,57 @@
     <br>
     <h3 class="col-6 tasktitle">{{taskData.description}}</h3>
     <div class="dropdown col-6">
-      <button type="button" @click="deleteTask" class="btn btn-outline-info bg-dark fas fa-trash-alt"></button>
-      <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-        aria-haspopup="true" aria-expanded="false">move to
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a v-for="list in lists" :value="list._id" class="dropdown-item" @click="moveTask(list._id)">{{list.title}}</a>
-      </div>
+      <!-- <button type="button" @click="deleteTask" class="btn btn-outline-info bg-dark fas fa-trash-alt"></button> -->
+      <!-- <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" -->
+      <!-- aria-haspopup="true" aria-expanded="false">move to -->
+      <!-- </button> -->
+      <!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"> -->
+      <!-- <a v-for="list in lists" :value="list._id" class="dropdown-item" @click="moveTask(list._id)">{{list.title}}</a> -->
+      <!-- </div> -->
     </div>
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable">
-      Launch demo modal
-    </button>
+    <i class="fas fa-plus text-info" data-toggle="modal" :data-target="'#commentmodal' + taskData._id">
+    </i>
 
     <!-- Modal -->
-    <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog"
-      aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+    <div class="modal fade" :id="'commentmodal' + taskData._id" tabindex="-1" role="dialog"
+      :aria-labelledby="'commentmodal' + taskData._id" aria-hidden="true">
       <div class="modal-dialog modal-dialog-scrollable" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalScrollableTitle">Modal title</h5>
+            <h5 class="modal-title">{{taskData.description}}</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
-            ...
+            <h4 class="col-12 words text-info"><i class="fas fa-chess-pawn"></i>Comments:</h4>
+            <div class="col-2">
+              <i class=" fas fa-plus text-info  plusstuff" @click="showAddComment = !showAddComment"
+                v-if="!showAddComment"></i>
+              <i class=" fas fa-minus text-info  createB" @click="showAddComment = !showAddComment"
+                v-if="showAddComment"></i>
+            </div>
+            <div class="row">
+              <form class="col-12 d-flex mt-2" @submit.prevent="addComment" v-if="showAddComment">
+                <input type="text" placeholder="description" v-model="newComment.content" required>
+                <button type="submit" class="fas fa-plus text-info form-control otherplus"></button>
+              </form>
+            </div>
           </div>
+          <h2 class="col-12" v-for="comment in taskData.comments">{{comment.content}}&nbsp
+            <i @click="deleteComment(comment)" class="fas fa-trash-alt"></i>
+          </h2>
           <div class="modal-footer">
+            <i @click="deleteTask" class="fas fa-trash-alt"></i>
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">move to
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a v-for="list in lists" :value="list._id" class="dropdown-item"
+                @click="moveTask(list._id)">{{list.title}}</a>
+            </div>
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
           </div>
         </div>
       </div>
@@ -45,25 +66,25 @@
 
     <!-- <hr> -->
     <!-- </div> -->
-    <!-- <h4 class="col-12 words text-info"><i class="fas fa-chess-pawn"></i>Comments:</h4> -->
-    <!-- <div class="col-12"> -->
-    <!-- <i class=" far fa-plus-square text-info bg-dark form-control border border-info plusstuff" -->
-    <!-- @click="showAddComment = !showAddComment" v-if="!showAddComment"></i> -->
-    <!-- <i class=" far fa-minus-square text-info bg-dark form-control border border-info createB" -->
-    <!-- @click="showAddComment = !showAddComment" v-if="showAddComment"></i> -->
-    <!-- </div> -->
-    <!-- <div class="row"> -->
-    <!-- <form class="col-12 d-flex mt-2" @submit.prevent="addComment" v-if="showAddComment"> -->
-    <!-- <input type="text" placeholder="description" v-model="newComment.content" required> -->
-    <!-- <button type="submit" -->
-    <!-- class="far fa-plus-square text-info bg-dark form-control border border-info otherplus"></button> -->
-    <!-- </form> -->
-    <!-- </div> -->
+    <!-- <h4 class="col-12 words text-info"><i class="fas fa-chess-pawn"></i>Comments:</h4>
+    <div class="col-12">
+    <i class=" far fa-plus-square text-info bg-dark form-control border border-info plusstuff"
+    @click="showAddComment = !showAddComment" v-if="!showAddComment"></i>
+    <i class=" fas fa-minus text-info bg-dark form-control border border-info createB"
+    @click="showAddComment = !showAddComment" v-if="showAddComment"></i>
+    </div>
+    <div class="row">
+    <form class="col-12 d-flex mt-2" @submit.prevent="addComment" v-if="showAddComment">
+    <input type="text" placeholder="description" v-model="newComment.content" required>
+    <button type="submit"
+    class="far fa-plus-square text-info bg-dark form-control border border-info otherplus"></button>
+    </form>
+    </div> -->
 
-    <!-- <h2 class="col-12" v-for="comment in taskData.comments">{{comment.content}}&nbsp -->
-    <!-- <button type="button" @click="deleteComment(comment)" -->
-    <!-- class="btn btn-outline-info bg-dark fas fa-trash-alt"></button> -->
-    <!-- </h2> -->
+    <!-- <h2 class="col-12" v-for="comment in taskData.comments">{{comment.content}}&nbsp
+    <button type="button" @click="deleteComment(comment)"
+    class="btn btn-outline-info bg-dark fas fa-trash-alt"></button>
+    </h2> -->
   </div>
 </template>
 
@@ -123,7 +144,7 @@
     margin-bottom: 15px;
   }
 
-  otherplus {
+  .otherplus {
     width: fit-content;
   }
 

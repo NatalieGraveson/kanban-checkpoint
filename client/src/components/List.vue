@@ -15,6 +15,10 @@
           </div>
         </div>
         <h2 class="text-white">{{listData.title}}</h2>
+        <form class="d-flex flex-column justify-content-center align-items-center w-100" @submit.prevent="addTask">
+          <input type="text" placeholder="Task..." v-model="newTask.description" required>
+          <button type="submit" class="btn btn-outline-info">Create task</button>
+        </form>
         <p class="card-text">
           <task v-for="task in tasks" :taskData='task'></task>
         </p>
@@ -31,11 +35,7 @@
         <!-- </button> -->
         <!-- </div> -->
         <!-- <div class="modal-body"> -->
-        <!-- <form class="d-flex flex-column justify-content-center align-items-center w-100" -->
-        <!-- @submit.prevent="addTask"> -->
-        <!-- <input type="text" placeholder="Task..." v-model="newTask.description" required> -->
-        <!--  <button type="submit" class="btn btn-outline-info">Create task</button> -->
-        <!-- </f>orm -->
+        <!--  -->
         <!-- <task v-for="task in tasks" :taskData='task'></task> -->
         <!-- </div> -->
         <!-- <div class="modal-footer"> -->
