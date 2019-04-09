@@ -4,13 +4,13 @@
       <div class="card-body">
         <div class="col-12">
           <div class="row">
-            <div class="col-6 topstuff">
+            <div class="col-8 topstuff">
 
-              <h5 class="card-title text-white"><i class="fas fa-chess-queen"></i>List:</h5>
+              <h5 class="card-title text-white"><i class="fas fa-chess-queen"></i>List</h5>
             </div>
-            <div class="col-6 topstuff text-right">
+            <div class="col-4 topstuff text-right">
 
-              <i @click="deleteList" class=" fas fa-trash-alt text-white trashit"></i>
+              <i @click="deleteList" class="fas fa-trash-alt text-white trashit"></i>
             </div>
           </div>
         </div>
@@ -18,12 +18,36 @@
         <p class="card-text">
           <task v-for="task in tasks" :taskData='task'></task>
         </p>
-        <form @submit.prevent="addTask">
-          <input type="text" placeholder="Task..." v-model="newTask.description" required>
-          <button type="submit" class="btn btn-outline-info">Create task</button>
-        </form>
+
+        <!-- Modal -->
+        <!-- <div class="modal fade" :id="'task-modal' + listData._id" tabindex=" -1" role="dialog" -->
+        <!-- :aria-labelledby="'task-modal' + listData._id" aria-hidden="true"> -->
+        <!-- <div class="modal-dialog modal-dialog-scrollable" role="document"> -->
+        <!-- <div class="modal-content"> -->
+        <!-- <div class="modal-header"> -->
+        <!-- <h5 class="modal-title">{{listData.title}}</h5> -->
+        <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"> -->
+        <!-- <span aria-hidden="true">&times;</span> -->
+        <!-- </button> -->
+        <!-- </div> -->
+        <!-- <div class="modal-body"> -->
+        <!-- <form class="d-flex flex-column justify-content-center align-items-center w-100" -->
+        <!-- @submit.prevent="addTask"> -->
+        <!-- <input type="text" placeholder="Task..." v-model="newTask.description" required> -->
+        <!--  <button type="submit" class="btn btn-outline-info">Create task</button> -->
+        <!-- </f>orm -->
+        <!-- <task v-for="task in tasks" :taskData='task'></task> -->
+        <!-- </div> -->
+        <!-- <div class="modal-footer"> -->
+        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        <!-- </div> -->
+        <!-- </div> -->
+        <!-- </div> -->
       </div>
+
     </div>
+  </div>
   </div>
   </div>
 
@@ -48,9 +72,9 @@
     },
     props: ['listData'],
     computed: {
-      lists() {
-        return this.$store.state.lists
-      },
+      // lists() {
+      //   return this.$store.state.lists
+      // },
       tasks() {
         return this.$store.state.tasks[this.listData._id] || []
       }
@@ -80,6 +104,10 @@
   h2 {
     font-size: 250%;
     text-shadow: 4px 2px black;
+  }
+
+  .card {
+    width: fit-content;
   }
 
   .topstuff {

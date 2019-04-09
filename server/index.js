@@ -5,7 +5,7 @@ var cors = require('cors')
 var port = process.env.PORT || 3000
 server.use(express.static(__dirname + '/../client/dist'))
 
-var whitelist = ['//localhost:8080', '//chess-mate-kan-ban.herokuapp.com'];
+var whitelist = ['http://localhost:8080', '//chess-mate-kan-ban.herokuapp.com'];
 var corsOptions = {
   origin: function (origin, callback) {
     var originIsWhitelisted = whitelist.indexOf(origin) !== -1;

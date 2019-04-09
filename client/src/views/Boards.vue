@@ -16,7 +16,7 @@
             <input class="bg-light form-control border border-info text-dark" type="text" placeholder="description"
               v-model="newBoard.description">
             <div class="d-flex justify-content-center">
-              <button class="far fa-plus-square text-info bg-dark form-control border border-info createB"
+              <button class=" click far fa-plus-square text-info bg-dark form-control border border-info createB"
                 type="submit"></button>
             </div>
           </form>
