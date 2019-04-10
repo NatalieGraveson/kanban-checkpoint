@@ -1,12 +1,19 @@
 <template>
   <div class="board">
-    <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
       <i class="fas fa-chess text-white fa-3x chess"></i>
       <button type="button" @click="logOut" class="ml-auto navbar-brand btn btn-outline-info topButton">Logout</button>
     </nav>
+    <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light bottomOne">
+      <i class="fas fa-chess text-white fa-3x chess"></i>
+      <button type="button" @click="logOut" class="ml-auto navbar-brand btn btn-outline-info topButton">Logout</button>
+    </nav>
+
+
     <div class="container-fluid">
       <div class="row">
-        <div class="col-12">
+        <div class="col-12 ">
+
           <h1>board:</h1>
           <h1 class=" text-info bg-dark">{{board.title}}</h1>
           <h1>Description:</h1>
@@ -16,10 +23,10 @@
       <div class="row">
         <div class="col-12 d-flex justify-content-center">
           <form @submit.prevent="addList">
-            <input class="bg-light form-control border border-info text-dark mt-5" type="text" placeholder="list name"
-              v-model="newList.title" required>
+            <input class="bg-light form-control border border-info text-dark mt-5 mb-2" type="text"
+              placeholder="list name" v-model="newList.title" required>
             <div class="d-flex justify-content-center ">
-              <button class="far fa-plus-square text-info bg-dark form-control border border-info createB"
+              <button class="fas fa-plus text-info form-control border border-info bg-transparent createB"
                 type="submit"></button>
             </div>
           </form>
@@ -100,6 +107,10 @@
 
   form {
     width: 50%;
+  }
+
+  .bottomOne {
+    margin-top: 64px;
   }
 
   @media only screen and (max-width: 450px) {

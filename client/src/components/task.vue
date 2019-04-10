@@ -1,23 +1,21 @@
 <template>
   <div class="task row border mb-4 bg-light">
-    <div class="col-4">
-      <h5 class="bg-info text-white border rounded mt-2"><i class="fas fa-chess-knight"></i>Task:</h5>
-    </div>
-    <div class="col-8"></div>
+
     <br>
-    <h3 class="col-6 tasktitle">{{taskData.description}}</h3>
-    <div class="dropdown col-6">
-      <!-- <button type="button" @click="deleteTask" class="btn btn-outline-info bg-dark fas fa-trash-alt"></button> -->
-      <!-- <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" -->
-      <!-- aria-haspopup="true" aria-expanded="false">move to -->
-      <!-- </button> -->
-      <!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"> -->
-      <!-- <a v-for="list in lists" :value="list._id" class="dropdown-item" @click="moveTask(list._id)">{{list.title}}</a> -->
-      <!-- </div> -->
-    </div>
+    <h3 class="col-12 tasktitle " data-toggle="modal" :data-target="'#commentmodal' + taskData._id">
+      {{taskData.description}}</h3>
+    <!-- <div class="dropdown col-6"> -->
+    <!-- <button type="button" @click="deleteTask" class="btn btn-outline-info bg-dark fas fa-trash-alt"></button> -->
+    <!-- <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" -->
+    <!-- aria-haspopup="true" aria-expanded="false">move to -->
+    <!-- </button> -->
+    <!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"> -->
+    <!-- <a v-for="list in lists" :value="list._id" class="dropdown-item" @click="moveTask(list._id)">{{list.title}}</a> -->
+    <!-- </div> -->
+    <!-- </div> -->
     <!-- Button trigger modal -->
-    <i class="fas fa-plus text-info" data-toggle="modal" :data-target="'#commentmodal' + taskData._id">
-    </i>
+    <!-- <i class="fas fa-plus text-info" data-toggle="modal" :data-target="'#commentmodal' + taskData._id"> -->
+    <!-- </i> -->
 
     <!-- Modal -->
     <div class="modal fade" :id="'commentmodal' + taskData._id" tabindex="-1" role="dialog"
@@ -155,5 +153,6 @@
 
   .tasktitle {
     color: black;
+    font-size: 21px;
   }
 </style>

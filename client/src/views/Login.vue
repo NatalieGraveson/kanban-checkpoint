@@ -1,6 +1,6 @@
 <template>
   <div class="login">
-    <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
       <i class="fas fa-chess text-white fa-3x chess mr-auto"></i>
       <span class="navbar-text text-white">
         Checkmate
