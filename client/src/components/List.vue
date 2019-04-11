@@ -6,13 +6,14 @@
         <div class="row">
           <div class="col-8 topstuff">
 
-            <h5 class="card-title text-white"><i class="fas fa-chess-queen"></i>List</h5>
+            <h5 class="card-title text-white topList"><i class="fas fa-chess-queen topList"></i>List</h5>
           </div>
           <div class="col-4 topstuff text-right">
 
-            <i @click="deleteList" class="fas fa-trash-alt text-white trashit"></i>
+            <i @click="deleteList" class="fas fa-trash-alt text-info trashit"></i>
           </div>
         </div>
+        <hr>
 
         <div class="row">
           <div class="col-10">
@@ -23,14 +24,11 @@
             <i class=" fas fa-minus text-info" @click="showAddTask = !showAddTask" v-if="showAddTask"></i>
           </div>
         </div>
-        <hr>
-        <!-- <h5 class="bg-info text-white border rounded mt-2"><i class="fas fa-chess-knight"></i>Task:</h5> -->
-        <!-- <i class=" fas fa-plus text-info" @click="showAddTask = !showAddTask" v-if="!showAddTask"></i> -->
-        <!-- <i class=" fas fa-minus text-info" @click="showAddTask = !showAddTask" v-if="showAddTask"></i> -->
+
         <form class="d-flex flex-column justify-content-center align-items-center w-100" @submit.prevent="addTask"
           v-if="showAddTask">
           <input type="text" placeholder="Task..." v-model="newTask.description" required>
-          <button type="submit" class="btn btn-outline-info">Create task</button>
+          <button type="submit" class="btn btn-outline-info mt-2">Create</button>
         </form>
         <p class="card-text">
           <task v-for="task in tasks" :taskData='task'></task>
@@ -100,7 +98,8 @@
       addTask() {
         this.newTask.listId = this.listData._id
         this.newTask.boardId = this.listData.boardId
-        this.$store.dispatch("addTask", this.newTask)
+        this.$store.dispatch("addTask", { ...this.newTask })
+        this.newTask.description = ""
       }
     },
     components: {
@@ -128,6 +127,10 @@
   .topstuff {
     margin-top: -10px;
 
+  }
+
+  .topList {
+    text-shadow: 4px 2px black;
   }
 
   .card {

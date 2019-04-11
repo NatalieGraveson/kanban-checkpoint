@@ -5,28 +5,43 @@
       <button type="button" @click="logOut" class="ml-auto navbar-brand btn btn-outline-info topButton">Logout</button>
     </nav>
     <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light bottomOne">
-      <i class="fas fa-chess text-white fa-3x chess"></i>
-      <button type="button" @click="logOut" class="ml-auto navbar-brand btn btn-outline-info topButton">Logout</button>
+      <h2>{{board.title}}</h2>
     </nav>
+    <h3 data-toggle="modal" :data-target="'#descriptMod' + board._id" class="mr-auto">{{board.description}}</h3>
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" :id="'#descriptMod' + board._id" tabindex="-1" role="dialog"
+      :aria-labelledby="'#descriptMod' + board._id" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Modal title</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
 
     <div class="container-fluid">
       <div class="row">
-        <div class="col-12 ">
-
-          <h1>board:</h1>
-          <h1 class=" text-info bg-dark">{{board.title}}</h1>
-          <h1>Description:</h1>
-          <h1 class="text-info bg-dark">{{board.description}}</h1>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-12 d-flex justify-content-center">
+        <div class="col-12 d-flex justify-content-center coolform">
           <form @submit.prevent="addList">
             <input class="bg-light form-control border border-info text-dark mt-5 mb-2" type="text"
               placeholder="list name" v-model="newList.title" required>
             <div class="d-flex justify-content-center ">
-              <button class="fas fa-plus text-info form-control border border-info bg-transparent createB"
+              <button class="fas fa-plus text-info form-control border border-info bg-light createB"
                 type="submit"></button>
             </div>
           </form>
@@ -88,13 +103,13 @@
     height: max-content;
   }
 
-  .board {
-    text-align: center;
-  }
+
 
   .navbar-brand {
     margin-right: 0rem;
   }
+
+
 
   .chess {
     z-index: 2;
@@ -103,6 +118,10 @@
 
   .createB {
     width: fit-content;
+  }
+
+  .coolform {
+    margin-top: 83px;
   }
 
   form {

@@ -4,7 +4,7 @@
       <i class="fas fa-chess text-white fa-3x chess"></i>
       <button type="button" @click="logOut" class="ml-auto navbar-brand btn btn-outline-info topButton">Logout</button>
     </nav>
-    <h1 class="mt-3">CHECK</h1>
+    <h1 class="topWords">CHECK</h1>
     <h1 class="mb-5">out your boards</h1>
     <div class="container-fluid">
       <div class="row">
@@ -16,7 +16,7 @@
             <input class="bg-light form-control border border-info text-dark" type="text" placeholder="description"
               v-model="newBoard.description">
             <div class="d-flex justify-content-center">
-              <button class=" click far fa-plus-square text-info bg-dark form-control border border-info createB"
+              <button class=" click fas fa-plus text-info mt-3 form-control border border-info createB"
                 type="submit"></button>
             </div>
           </form>
@@ -25,16 +25,14 @@
       </div>
       <div class="row">
         <div v-for="board in boards" :key="board._id" class="col-lg-4 col-md-6 col-12 d-flex cardstuff ">
-          <!-- <div > -->
+
           <div class="card bg-dark border border-light my-3">
-            <i class="fas fa-chess-king text-white fa-4x kingT"></i>
+            <i class="fas fa-chess-king text-white fa-3x kingT"></i>
             <div class="card-body">
               <router-link class="nameB" :to="{name: 'board', params: {boardId: board._id}}">{{board.title}}
               </router-link>
               <hr>
-              <br>
-              <button class="btn btn-outline-info bg-dark trashIt" @click="deleteBoard(board._id)"><i
-                  class="fas fa-trash-alt"></i></button>
+              <i @click="deleteBoard(board._id)" class="fas fa-trash-alt text-info"></i>
             </div>
           </div>
         </div>
@@ -105,20 +103,20 @@
   }
 
   .kingT {
-    margin-top: 18px;
+
     text-shadow: 4px 2px black;
-    margin-bottom: -20px;
+    margin-top: 13px;
+
   }
 
   .nameB {
-    font-size: 35px;
-    color: black;
+    font-size: 29px;
+    color: white;
     font-weight: bolder;
+    text-shadow: 4px 2px black;
   }
 
-  .trashIt {
-    margin-top: -50px;
-  }
+
 
   form {
     width: 50%;
@@ -126,6 +124,10 @@
 
   .cardstuff {
     justify-content: center;
+  }
+
+  .topWords {
+    margin-top: 65px;
   }
 
   .createB {
