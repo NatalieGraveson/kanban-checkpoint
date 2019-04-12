@@ -2,6 +2,10 @@
   <div class="task row border mb-3 bg-light allTask">
 
     <br>
+    <div class="custom-control custom-checkbox">
+      <input type="checkbox" class="custom-control-input" id="${this._id}">
+      <label class="custom-control-label" for="customCheck1"></label>
+    </div>
     <h3 class="col-12 tasktitle " data-toggle="modal" :data-target="'#commentmodal' + taskData._id">
       {{taskData.description}}</h3>
     <!-- <div class="dropdown col-6"> -->
@@ -23,7 +27,16 @@
       <div class="modal-dialog modal-dialog-scrollable" role="document">
         <div class="modal-content">
           <div class="modal-header">
+
+            <!-- <h5 @click="this.completed = !this.completed" v-if="completed" -->
+            <!-- class="modal-title text-center far fa-check-square"> -->
+            <!-- {{taskData.description}}</h5> -->
+            <!-- <h5 @click="this.completed = !this.completed" v-if="!completed" -->
+            <!-- class="modal-title text-center far fa-square">{{taskData.description}}</h5> -->
             <h5 class="modal-title text-center">{{taskData.description}}</h5>
+
+
+
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -95,6 +108,7 @@
     props: ['taskData'],
     data() {
       return {
+        completed: false,
         showAddComment: false,
         newComment: {
           taskId: this.taskData._id,
