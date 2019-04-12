@@ -34,27 +34,7 @@
           <task v-for="task in tasks" :taskData='task'></task>
         </p>
 
-        <!-- Modal -->
-        <!-- <div class="modal fade" :id="'task-modal' + listData._id" tabindex=" -1" role="dialog" -->
-        <!-- :aria-labelledby="'task-modal' + listData._id" aria-hidden="true"> -->
-        <!-- <div class="modal-dialog modal-dialog-scrollable" role="document"> -->
-        <!-- <div class="modal-content"> -->
-        <!-- <div class="modal-header"> -->
-        <!-- <h5 class="modal-title">{{listData.title}}</h5> -->
-        <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"> -->
-        <!-- <span aria-hidden="true">&times;</span> -->
-        <!-- </button> -->
-        <!-- </div> -->
-        <!-- <div class="modal-body"> -->
-        <!--  -->
-        <!-- <task v-for="task in tasks" :taskData='task'></task> -->
-        <!-- </div> -->
-        <!-- <div class="modal-footer"> -->
-        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
-        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
-        <!-- </div> -->
-        <!-- </div> -->
-        <!-- </div> -->
+
       </div>
 
     </div>

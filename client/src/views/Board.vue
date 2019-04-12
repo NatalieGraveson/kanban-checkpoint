@@ -5,29 +5,29 @@
       <button type="button" @click="logOut" class="ml-auto navbar-brand btn btn-outline-info topButton">Logout</button>
     </nav>
     <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light bottomOne">
-      <h2>{{board.title}}</h2>
+      <h2 data-toggle="modal" data-target="#descriptMod">{{board.title}}</h2>
     </nav>
-    <h3 data-toggle="modal" :data-target="'#descriptMod' + board._id" class="mr-auto">{{board.description}}</h3>
+
 
 
 
     <!-- Modal -->
-    <div class="modal fade" :id="'#descriptMod' + board._id" tabindex="-1" role="dialog"
-      :aria-labelledby="'#descriptMod' + board._id" aria-hidden="true">
+    <div class="modal fade" id="descriptMod" tabindex="-1" role="dialog" aria-labelledby="descriptMod"
+      aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title">Modal title</h5>
+            <h5 class="modal-title text-info">{{board.title}}</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
-            ...
+            {{board.description}}
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
+
           </div>
         </div>
       </div>
